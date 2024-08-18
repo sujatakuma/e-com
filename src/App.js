@@ -1,25 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+
+
+import LoginForm from './component/login/Ligin';
+
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import SignupForm from './component/login/Singup';
+import Product from './component/product/Product';
+import Navbar from './component/Navbar';
+import Addtocard from './component/Addtocard';
+import Footer from './component/footer/Footer';
+import Bynow from './component/product/Bynow';
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+    <div className=''>
+      <Navbar/>
+      </div>
+          <Routes>
+          <Route path="/" element={<Product/>}/>
+            <Route path="/signup" element={<SignupForm />}/>
+            <Route path="/login" element={<LoginForm/>}/>
+           
+            <Route path="/addcard" element={<Addtocard/>}/>
+            <Route path="/products/:id" element={<Bynow/>}/>
+            
+
+          </Routes>
+     <Footer/>
+    </>
   );
 }
 
 export default App;
+
